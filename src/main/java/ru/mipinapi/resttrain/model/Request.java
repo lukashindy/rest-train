@@ -13,10 +13,10 @@ import javax.persistence.Column;
 public class Request {
 
     @Column(name = "number")
-    private Integer number;
+    private String number;
 
     @Builder
-    public Request(Integer number) {
+    public Request(String number) {
         this.number = number;
     }
 }

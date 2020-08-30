@@ -43,9 +43,9 @@ public class RequestServiceImpl implements RequestService {
 
         for(int i = 0; i < subStr.length; i++) {
             if (i == subStr.length - 1)
-                result.append(parse(subStr[i]) + request.getNumber());
+                result.append(parse(subStr[i]) + Integer.parseInt(request.getNumber()));
             else
-                result.append(parse(subStr[i]) + request.getNumber()).append(", ");
+                result.append(parse(subStr[i]) + Integer.parseInt(request.getNumber())).append(", ");
         }
         return result.toString();
     }

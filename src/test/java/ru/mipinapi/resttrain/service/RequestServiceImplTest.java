@@ -39,7 +39,7 @@ class RequestServiceImplTest {
     void postEndpointBWithRequestBody() {
 
         // given
-        Request request = Request.builder().number(1000).build();
+        Request request = Request.builder().number("1000").build();
 
         // when
         result = requestService.postEndpointB(parameter, request);
