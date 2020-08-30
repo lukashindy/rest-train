@@ -1,5 +1,6 @@
 package ru.mipinapi.resttrain.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,4 +14,9 @@ public class Request {
 
     @Column(name = "number")
     private Integer number;
+
+    @Builder
+    public Request(Integer number) {
+        this.number = number;
+    }
 }

@@ -7,6 +7,9 @@ import ru.mipinapi.resttrain.model.Request;
 @Service
 public class RequestServiceImpl implements RequestService {
 
+    public RequestServiceImpl() {
+    }
+
     public String getEndpointA(String data) {
 
         String[] subStr = data.split(",");
