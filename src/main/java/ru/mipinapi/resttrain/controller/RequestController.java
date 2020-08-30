@@ -1,7 +1,10 @@
 package ru.mipinapi.resttrain.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.mipinapi.resttrain.model.Request;
@@ -20,10 +23,10 @@ public class RequestController {
     }
 
     /**
-     * @param data
-     * @return number - Check with Postman API: http://127.0.0.1:8080/api/1,5,125,-123 as example
+     * @param data - string with numbers
+     * @return response - Check with Postman API: http://127.0.0.1:8080/api/1,5,125,-123 as example
      */
-    @GetMapping("/{data}")
+    @GetMapping(value = "/{data}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getEndpointA(@RequestBody @PathVariable String data) {
         String response = requestService.getEndpointA(data);
         return new ResponseEntity<>(response, HttpStatus.OK);
@@ -31,11 +34,11 @@ public class RequestController {
 
 
     /**
-     * @param number
-     * @return number - Check with Postman API: http://127.0.0.1:8080/api/1,100,1000/323 as example
-     * answer - 324, 423, 1323
+     * @param number - number for post
+     * @return response -> Check with Postman API: http://127.0.0.1:8080/api/1,100,1000/323 as example
+     * result - 324, 423, 1323
      */
-    @PostMapping("/{data}/{number}")
+    @PostMapping(value = "/{data}/{number}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> postEndpointB(@PathVariable String data,
                                                 @PathVariable Integer number) {
         String response = requestService.postEndpointB(data, number);
@@ -44,17 +47,17 @@ public class RequestController {
 
 
     /**
-     * @param request
-     * @return request - Check with Postman API: http://127.0.0.1:8080/api/1,100,1000,10000 as example
+     * @param request - object of request with number as parameter
+     * @return response - Check with Postman API: http://127.0.0.1:8080/api/1,100,1000,10000 as example
      * Body raw:
      * {
      *     "number" : 10000
      * }
-     * Answer - 10001, 10100, 11000, 20000
+     * result - 10001, 10100, 11000, 20000
      */
-    @PostMapping("/{data}/")
+    @PostMapping(value = "/{data}/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> postEndpointBSecondWayWithBody(@PathVariable String data,
-                                                                 @RequestBody Request request) {
+                                                                 @JsonFormat @RequestBody Request request) {
         String response = requestService.postEndpointB(data, request);
         return ResponseEntity.ok(response);
     }
