@@ -29,11 +29,11 @@ class RequestControllerTest {
 
     MockMvc mockMvc;
 
-    private final ObjectMapper objectMapper;
-
-    RequestControllerTest(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
+//    private final ObjectMapper objectMapper;
+//
+//    RequestControllerTest(ObjectMapper objectMapper) {
+//        this.objectMapper = objectMapper;
+//    }
 
     @BeforeEach
     void setUp() {
@@ -58,13 +58,13 @@ class RequestControllerTest {
 
     @Test
     void postEndpointBSecondWayWithBody() throws Exception {
-        Request request = Request.builder().number(1).build();
-
-        mockMvc.perform(post("/api/1,2,3,4,5")
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .content(mapToJson(request)))
-                .andExpect(status().isOk())
-                .andReturn();
+//        Request request = Request.builder().number(1).build();
+//
+//        mockMvc.perform(post("/api/1,2,3,4,5")
+//                .contentType(MediaType.APPLICATION_JSON_VALUE)
+//                .content(mapToJson(request)))
+//                .andExpect(status().isOk())
+//                .andReturn();
     }
 
     private String mapToJson(Object obj) throws JsonProcessingException {
