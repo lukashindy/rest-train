@@ -19,4 +19,11 @@ public class Request {
     public Request(String number) {
         this.number = number;
     }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "number='" + number + '\'' +
+                '}';
+    }
 }
