@@ -18,13 +18,4 @@ public class RequestRestHandler extends ResponseEntityExceptionHandler {
                 System.currentTimeMillis());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
-
-//    @ExceptionHandler(Throwable.class)
-//    public ResponseEntity<RequestErrorResponse> handleDefaultException(Throwable exc) {
-//        RequestErrorResponse error = new RequestErrorResponse(
-//                HttpStatus.BAD_REQUEST.value(),
-//                exc.getMessage(),
-//                System.currentTimeMillis());
-//        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-//    }
 }

@@ -8,13 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.mipinapi.resttrain.model.Request;
 import ru.mipinapi.resttrain.service.RequestService;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -28,12 +26,6 @@ class RequestControllerTest {
     RequestController requestController;
 
     MockMvc mockMvc;
-
-//    private final ObjectMapper objectMapper;
-//
-//    RequestControllerTest(ObjectMapper objectMapper) {
-//        this.objectMapper = objectMapper;
-//    }
 
     @BeforeEach
     void setUp() {
@@ -58,8 +50,8 @@ class RequestControllerTest {
 
     @Test
     void postEndpointBSecondWayWithBody() throws Exception {
-//        Request request = Request.builder().number(1).build();
-//
+        Request request = Request.builder().number("1").build();
+
 //        mockMvc.perform(post("/api/1,2,3,4,5")
 //                .contentType(MediaType.APPLICATION_JSON_VALUE)
 //                .content(mapToJson(request)))
